@@ -13,8 +13,7 @@
         {
             "requiredMinimumOSVersion": "15.7.4",
             "requiredInstallationDate": "2026-03-20T00:00:00Z",
-            "targetedOSVersionsRule": "default",
-            "aboutUpdateURL": "https://support.apple.com/en-us/HT201222"
+            "targetedOSVersionsRule": "default"
         }
     ],
     "userExperience": {
@@ -30,9 +29,9 @@
             {
                 "_language": "en",
                 "actionButtonText": "Update Now",
-                "customAdmissionText": "Your device is running an unsupported version of macOS.",
+                "customAdmissionText": "Your device must meet minimum security standards.",
                 "mainContentHeader": "Security Upgrade Required",
-                "mainContentText": "To maintain access to company resources, your Mac must be upgraded to a supported version of macOS. Please click 'Update Now' to begin.",
+                "mainContentText": "To maintain access to company resources, your Mac must be upgraded to a supported version of macOS.",
                 "mainHeader": "macOS Upgrade Required"
             }
         ]
