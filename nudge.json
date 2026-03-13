@@ -3,6 +3,16 @@
         {
             "requiredMinimumOSVersion": "26.3.1",
             "requiredInstallationDate": "2026-03-18T00:00:00Z",
+            "targetedOSVersionsRule": "Tahoe 26"
+        },
+        {
+            "requiredMinimumOSVersion": "15.7.4",
+            "requiredInstallationDate": "2026-03-16T00:00:00Z",
+            "targetedOSVersionsRule": "Sequoia 15"
+        },
+        {
+            "requiredMinimumOSVersion": "15.7.4",
+            "requiredInstallationDate": "2026-03-20T00:00:00Z",
             "targetedOSVersionsRule": "default"
         }
     ],
@@ -19,11 +29,10 @@
             {
                 "_language": "en",
                 "actionButtonText": "Update Now",
-                "customAdmissionText": "This update is required for company security compliance.",
-                "informationButtonText": "Learn Why...",
-                "mainContentHeader": "Help us keep your Mac secure",
-                "mainContentText": "A security update is available for your Mac. To ensure continued access to company resources, please install this update before the deadline.",
-                "mainHeader": "macOS Update Required"
+                "customAdmissionText": "Your device is running an unsupported version of macOS.",
+                "mainContentHeader": "Critical Security Upgrade Required",
+                "mainContentText": "To maintain access to company resources, your Mac must be upgraded to a supported version of macOS. Please click 'Update Now' to begin.",
+                "mainHeader": "macOS Upgrade Required"
             }
         ]
     }
