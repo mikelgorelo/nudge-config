@@ -12,8 +12,11 @@ except Exception as e:
 latest_os = data['OSVersions'][0]
 latest_version = latest_os['Latest']['ProductVersion']
 
-# 3. Calculate deadline (14 days from today)
-deadline = (datetime.datetime.utcnow() + datetime.timedelta(days=14)).strftime('%Y-%m-%dT%H:%M:%SZ')
+# 3. Calculate deadline (14 days from the ACTUAL RELEASE DATE)
+release_date_str = latest_os['Latest']['ReleaseDate'] # e.g., "2026-03-10"
+release_date = datetime.datetime.strptime(release_date_str, '%Y-%m-%d')
+deadline_date = release_date + datetime.timedelta(days=14)
+deadline = deadline_date.strftime('%Y-%m-%dT00:00:00Z')
 
 # 4. Build your custom Nudge JSON
 nudge_dict = {
