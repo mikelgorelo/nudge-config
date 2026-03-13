@@ -3,17 +3,18 @@
         {
             "requiredMinimumOSVersion": "26.3.1",
             "requiredInstallationDate": "2026-03-18T00:00:00Z",
-            "targetedOSVersionsRule": "Tahoe 26"
+            "targetedOSVersionsRule": "26"
         },
         {
             "requiredMinimumOSVersion": "15.7.4",
             "requiredInstallationDate": "2026-03-16T00:00:00Z",
-            "targetedOSVersionsRule": "Sequoia 15"
+            "targetedOSVersionsRule": "15"
         },
         {
             "requiredMinimumOSVersion": "15.7.4",
             "requiredInstallationDate": "2026-03-20T00:00:00Z",
-            "targetedOSVersionsRule": "default"
+            "targetedOSVersionsRule": "default",
+            "aboutUpdateURL": "https://support.apple.com/en-us/HT201222"
         }
     ],
     "userExperience": {
@@ -30,7 +31,7 @@
                 "_language": "en",
                 "actionButtonText": "Update Now",
                 "customAdmissionText": "Your device is running an unsupported version of macOS.",
-                "mainContentHeader": "Critical Security Upgrade Required",
+                "mainContentHeader": "Security Upgrade Required",
                 "mainContentText": "To maintain access to company resources, your Mac must be upgraded to a supported version of macOS. Please click 'Update Now' to begin.",
                 "mainHeader": "macOS Upgrade Required"
             }
