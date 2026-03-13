@@ -1,8 +1,8 @@
 import urllib.request, json, datetime
 
-# 1. Fetch Apple Release Data from the MacAdmins SOFA feed
-url = "https://sofa.macadmins.io/v1/macos_data_feed.json"
-req = urllib.request.Request(url, headers={'User-Agent': 'Mozilla/5.0'})
+# 1. Fetch Apple Release Data directly from the raw GitHub repo to bypass web firewalls
+url = "https://raw.githubusercontent.com/macadmins/sofa/main/v1/macos_data_feed.json"
+req = urllib.request.Request(url, headers={'User-Agent': 'Nudge-Automation-Bot/1.0'})
 with urllib.request.urlopen(req) as response:
     data = json.loads(response.read())
 
