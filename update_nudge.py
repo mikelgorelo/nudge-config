@@ -1,10 +1,12 @@
-import urllib.request, json, datetime
+import json, datetime
 
-# 1. Fetch Apple Release Data directly from the raw GitHub repo to bypass web firewalls
-url = "https://raw.githubusercontent.com/macadmins/sofa/main/v1/macos_data_feed.json"
-req = urllib.request.Request(url, headers={'User-Agent': 'Nudge-Automation-Bot/1.0'})
-with urllib.request.urlopen(req) as response:
-    data = json.loads(response.read())
+# 1. Read Apple Release Data from the locally downloaded SOFA feed
+try:
+    with open('sofa.json', 'r') as f:
+        data = json.load(f)
+except Exception as e:
+    print("Error reading the downloaded SOFA feed.")
+    exit(1)
 
 # 2. Get the latest active major OS version (e.g., Sonoma or Sequoia)
 latest_os = data['OSVersions'][0]
@@ -42,7 +44,7 @@ nudge_dict = {
     }
 }
 
-# 5. Save the file
+# 5. Save the final file
 with open('nudge.json', 'w') as f:
     json.dump(nudge_dict, f, indent=4)
     
