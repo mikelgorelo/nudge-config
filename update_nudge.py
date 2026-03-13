@@ -22,29 +22,35 @@ def calculate_deadline(release_date_str, grace_days=14):
         deadline_date = now + datetime.timedelta(days=3)
     return deadline_date.strftime('%Y-%m-%dT00:00:00Z')
 
-# 2. Build the Requirements List
+# 2. Extract ONLY the number from the OS Name (e.g., "Tahoe 26" -> "26")
+def get_major_version_number(os_string):
+    # This splits the string and takes the last part (the number)
+    return os_string.split()[-1]
+
+version_n = get_major_version_number(major_n['OSVersion'])
+version_n_minus_1 = get_major_version_number(major_n_minus_1['OSVersion'])
+
+# 3. Build the Requirements List
 requirements = [
-    # RULE 1: If on the newest Major OS, stay patched
     {
         "requiredMinimumOSVersion": major_n['Latest']['ProductVersion'],
         "requiredInstallationDate": calculate_deadline(major_n['Latest']['ReleaseDate']),
-        "targetedOSVersionsRule": major_n['OSVersion']
+        "targetedOSVersionsRule": version_n
     },
-    # RULE 2: If on the N-1 Major OS, stay patched
     {
         "requiredMinimumOSVersion": major_n_minus_1['Latest']['ProductVersion'],
         "requiredInstallationDate": calculate_deadline(major_n_minus_1['Latest']['ReleaseDate']),
-        "targetedOSVersionsRule": major_n_minus_1['OSVersion']
+        "targetedOSVersionsRule": version_n_minus_1
     },
-    # RULE 3: THE FALLBACK. If on N-2 or older, force upgrade to the latest N-1
     {
         "requiredMinimumOSVersion": major_n_minus_1['Latest']['ProductVersion'],
         "requiredInstallationDate": (now + datetime.timedelta(days=7)).strftime('%Y-%m-%dT00:00:00Z'),
-        "targetedOSVersionsRule": "default"
+        "targetedOSVersionsRule": "default",
+        "aboutUpdateURL": "https://support.apple.com/en-us/HT201222"
     }
 ]
 
-# 3. Build the JSON
+# 4. Build the JSON
 nudge_dict = {
     "osVersionRequirements": requirements,
     "userExperience": {
@@ -61,7 +67,7 @@ nudge_dict = {
                 "_language": "en",
                 "actionButtonText": "Update Now",
                 "customAdmissionText": "Your device is running an unsupported version of macOS.",
-                "mainContentHeader": "Critical Security Upgrade Required",
+                "mainContentHeader": "Security Upgrade Required",
                 "mainContentText": "To maintain access to company resources, your Mac must be upgraded to a supported version of macOS. Please click 'Update Now' to begin.",
                 "mainHeader": "macOS Upgrade Required"
             }
@@ -72,4 +78,4 @@ nudge_dict = {
 with open('nudge.json', 'w') as f:
     json.dump(nudge_dict, f, indent=4)
 
-print("Nudge config updated: N and N-1 supported. N-2 and older forced to N-1.")
+print(f"Nudge config generated. N={version_n}, N-1={version_n_minus_1}")
