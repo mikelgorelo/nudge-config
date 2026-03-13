@@ -40,6 +40,10 @@ nudge_dict = {
     ],
     "userExperience": {
         "nudgeRefreshCycle": 60,
+        "approachingRefreshCycle": 240,  # 4 hours when far from deadline
+        "imminentRefreshCycle": 30,      # 30 mins when very close
+        "approachingWindow": 10,         # Start "approaching" 10 days out
+        "imminentWindow": 3,             # Start "imminent" 3 days out
         "randomDelay": False
     },
     "userInterface": {
@@ -47,12 +51,11 @@ nudge_dict = {
             {
                 "_language": "en",
                 "actionButtonText": "Update Now",
-                "customAdmissionText": "This is an automated update requirement from IT.",
-                "informationButtonText": "More Info",
-                "mainContentHeader": "Your IT Department requires an update",
-                "mainContentNote": "Important Security Update",
-                "mainContentText": "A fully up-to-date device is required to ensure that IT can accurately protect your computer.\n\nIf you do not update your computer, you may lose access to company resources.",
-                "mainHeader": "Your Mac requires an important update"
+                "customAdmissionText": "This update is required for company security compliance.",
+                "informationButtonText": "Learn Why...",
+                "mainContentHeader": "Help us keep your Mac secure",
+                "mainContentText": "A security update is available for your Mac. To ensure continued access to company resources, please install this update before the deadline.",
+                "mainHeader": "macOS Update Required"
             }
         ]
     }
