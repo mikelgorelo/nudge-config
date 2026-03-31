@@ -12,7 +12,7 @@
         },
         {
             "requiredMinimumOSVersion": "15.7.5",
-            "requiredInstallationDate": "2026-04-06T00:00:00Z",
+            "requiredInstallationDate": "2026-04-07T00:00:00Z",
             "targetedOSVersionsRule": "default"
         }
     ],
