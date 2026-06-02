@@ -1,18 +1,18 @@
 {
     "osVersionRequirements": [
         {
-            "requiredMinimumOSVersion": "26.5",
-            "requiredInstallationDate": "2026-06-04T00:00:00Z",
+            "requiredMinimumOSVersion": "26.5.1",
+            "requiredInstallationDate": "2026-06-15T00:00:00Z",
             "targetedOSVersionsRule": "26"
         },
         {
             "requiredMinimumOSVersion": "15.7.7",
-            "requiredInstallationDate": "2026-06-04T00:00:00Z",
+            "requiredInstallationDate": "2026-06-05T00:00:00Z",
             "targetedOSVersionsRule": "15"
         },
         {
             "requiredMinimumOSVersion": "15.7.7",
-            "requiredInstallationDate": "2026-06-08T00:00:00Z",
+            "requiredInstallationDate": "2026-06-09T00:00:00Z",
             "targetedOSVersionsRule": "default"
         }
     ],
